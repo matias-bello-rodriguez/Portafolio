@@ -7,13 +7,13 @@ const Projects = () => {
 
   // Definir las imágenes para cada proyecto
   const projectImages = {
-    1: ['/images/sif/image.png', '/images/sif/1.png', '/images/sif/2.png', '/images/sif/3.png', '/images/sif/4.png', '/images/sif/5.png', '/images/sif/6.png', '/images/sif/7.png'],
-    2: ['/images/chat-tms/image.png', '/images/chat-tms/1.png', '/images/chat-tms/2.png'],
-    3: ['/images/pdf-python-excel/image.png'],
-    4: ['/images/tellevo/image.png', '/images/tellevo/1.png', '/images/tellevo/2.png', '/images/tellevo/3.png'],
-    5: ['/images/big-data/image.png'],
-    8: ['/images/asiste/image.png', '/images/asiste/1.png'],
-    9: ['/images/ml-dtamin/Captura de pantalla 2025-08-12 215046.png', '/images/ml-dtamin/Captura de pantalla 2025-08-12 215059.png'],
+  1: ['images/sif/image.png', 'images/sif/1.png', 'images/sif/2.png', 'images/sif/3.png', 'images/sif/4.png', 'images/sif/5.png', 'images/sif/6.png', 'images/sif/7.png'],
+  2: ['images/chat-tms/image.png', 'images/chat-tms/1.png', 'images/chat-tms/2.png'],
+  3: ['images/pdf-python-excel/image.png'],
+  4: ['images/tellevo/image.png', 'images/tellevo/1.png', 'images/tellevo/2.png', 'images/tellevo/3.png'],
+  5: ['images/big-data/image.png'],
+  8: ['images/asiste/image.png', 'images/asiste/1.png'],
+  9: ['images/ml-dtamin/Captura de pantalla 2025-08-12 215046.png', 'images/ml-dtamin/Captura de pantalla 2025-08-12 215059.png'],
     // Proyectos sin imágenes (se mostrarán con logo mono)
     6: ['🐒'], // API REST
     7: ['🐒']  // Sistema Control
@@ -27,7 +27,7 @@ const Projects = () => {
       description: "Proyecto final de carrera de ingeniería en informática. Herramienta avanzada para gestión de flota con seguimiento GPS en tiempo real, reducción de costos operativos en gasolina y mantenciones preventivas. Diseñado en base a necesidades reales de empresas logísticas de Penco.",
       technologies: ["TypeScript", "HTML", "JavaScript", "SCSS", "Flask", "MySQL", "Leaflet"],
       category: "Full-Stack",
-      image: "/images/sif/image.png",
+  image: "images/sif/image.png",
       features: [
         "Módulo de registro de combustible",
         "Módulo de mantenimiento y creación de OT",
@@ -46,7 +46,7 @@ const Projects = () => {
       description: "MVP de gestor de transporte con panel de control, formularios, reportes y chatbot interactivo escalable con IA para ser parte de un TMS global. Construido con PHP + MySQL + Bootstrap para XAMPP en Windows.",
       technologies: ["PHP", "MySQL", "Bootstrap", "JavaScript", "Chart.js", "Leaflet", "QRCode.js"],
       category: "Web App",
-      image: "/images/chat-tms/image.png",
+  image: "images/chat-tms/image.png",
       features: [
         "Dashboard con métricas y gráficos (Chart.js)",
         "Gestión completa de viajes con mapa (Leaflet)",
@@ -67,7 +67,7 @@ const Projects = () => {
       description: "Sistema de conversión Excel a PDF con integración de bases de datos. Plataforma que transforma archivos Excel en documentos PDF profesionales, automatiza procesos de datos y gestiona instancias en bases de datos mediante interfaz web Angular.",
       technologies: ["Angular", "TypeScript", "Python", "Pandas", "OpenPyXL", "ReportLab", "Flask", "SQLAlchemy"],
       category: "Full-Stack",
-      image: "/images/pdf-python-excel/image.png",
+  image: "images/pdf-python-excel/image.png",
       features: [
         "Conversión avanzada Excel a PDF manteniendo formato",
         "Procesamiento de datos con Pandas y OpenPyXL",
@@ -87,7 +87,7 @@ const Projects = () => {
       description: "Plataforma móvil que conecta conductores y pasajeros de DUOC UC de forma segura y eficiente. Los usuarios con vehículos pueden prestar servicio mediante compensación, mientras que estudiantes sin movilización pueden adherirse a viajes existentes.",
       technologies: ["Ionic", "TypeScript", "Angular", "Firebase", "Google Maps", "Capacitor", "Express.js"],
       category: "Mobile",
-      image: "/images/tellevo/image.png",
+  image: "images/tellevo/image.png",
       features: [
         "Creación e ingreso de viajes por conductores",
         "Adherirse a viajes para pasajeros",
@@ -107,7 +107,7 @@ const Projects = () => {
       description: "Sistema de análisis de transporte público con arquitecturas Batch y Real-Time. Procesamiento eficiente de datos históricos del transporte público para identificar patrones y optimizar rutas mediante Google Cloud Platform.",
       technologies: ["Google Cloud", "Python", "BigQuery", "Dataprep", "Cloud Functions", "Pub/Sub", "Cloud Scheduler"],
       category: "Data Science",
-      image: "/images/big-data/image.png",
+  image: "images/big-data/image.png",
       features: [
         "Procesamiento ETL de datos GTFS",
         "Arquitectura Batch para análisis histórico",
@@ -128,7 +128,7 @@ const Projects = () => {
       description: "Solución integral que transforma el control de presencia en una experiencia intuitiva. Desarrollada con Ionic-Angular para registro inteligente con geolocalización precisa y dashboard ejecutivo con métricas en tiempo real.",
       technologies: ["Ionic", "Angular", "TypeScript", "Node.js", "Express", "Firebase", "Capacitor"],
       category: "Mobile",
-      image: "/images/asiste/image.png",
+  image: "images/asiste/image.png",
       features: [
         "Registro inteligente con geolocalización precisa",
         "Dashboard ejecutivo con métricas en tiempo real",
@@ -149,7 +149,7 @@ const Projects = () => {
       description: "Análisis de datos meteorológicos de Australia para extraer información relevante, visualizar tendencias y construir modelos predictivos. Identifica factores clave que influyen en el clima con aplicación empresarial real para Aerostáticos Aventura.",
       technologies: ["Python", "XGBoost", "Random Forest", "Scikit-learn", "Pandas", "GridSearch", "Data Mining"],
       category: "Data Science",
-      image: "/images/ml-dtamin/Captura de pantalla 2025-08-12 215046.png",
+  image: "images/ml-dtamin/Captura de pantalla 2025-08-12 215046.png",
       features: [
         "Análisis predictivo del clima australiano",
         "4 modelos ML: XGBoost, Random Forest, SVM, Regresión Logística",
