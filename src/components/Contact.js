@@ -72,6 +72,12 @@ const Contact = () => {
       link: "https://www.linkedin.com/in/mat%C3%ADas-bello-rodr%C3%ADguez-5b798323a/"
     },
     {
+      title: "GitHub",
+      value: "github.com/matias-bello-rodriguez",
+      icon: "🐙",
+      link: "https://github.com/matias-bello-rodriguez"
+    },
+    {
       title: "Ubicación",
       value: "Concepción, Chile",
       icon: "📍",
