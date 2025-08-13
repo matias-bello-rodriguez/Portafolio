@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Contact.css';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
+  const form = useRef();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    user_name: '',
+    user_email: '',
     company: '',
     subject: '',
     message: ''
@@ -20,26 +22,34 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulación de envío
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        subject: '',
-        message: ''
-      });
-      
-      setTimeout(() => {
-        setSubmitStatus(null);
-      }, 5000);
-    }, 2000);
+
+    emailjs.sendForm(
+      'service_2asd39o',
+      'template_2mvtgz3',
+      form.current,
+      'K-zu5afYStOWIbtIc'
+    )
+    .then((result) => {
+        setIsSubmitting(false);
+        setSubmitStatus('success');
+        setFormData({
+          user_name: '',
+          user_email: '',
+          company: '',
+          subject: '',
+          message: ''
+        });
+
+        setTimeout(() => {
+          setSubmitStatus(null);
+        }, 5000);
+    }, (error) => {
+        setIsSubmitting(false);
+        alert('Error al enviar el mensaje');
+    });
   };
 
   const contactInfo = [
@@ -150,7 +160,7 @@ const Contact = () => {
           </div>
 
           <div className="contact-form-container">
-            <form className="contact-form" onSubmit={handleSubmit}>
+            <form ref={form} className="contact-form" onSubmit={sendEmail}>
               <h3 className="form-title">Envíame un mensaje</h3>
               
               <div className="form-row">
@@ -159,8 +169,8 @@ const Contact = () => {
                   <input
                     type="text"
                     id="name"
-                    name="name"
-                    value={formData.name}
+                    name="user_name"
+                    value={formData.user_name}
                     onChange={handleChange}
                     className="form-input"
                     required
@@ -173,8 +183,8 @@ const Contact = () => {
                   <input
                     type="email"
                     id="email"
-                    name="email"
-                    value={formData.email}
+                    name="user_email"
+                    value={formData.user_email}
                     onChange={handleChange}
                     className="form-input"
                     required
