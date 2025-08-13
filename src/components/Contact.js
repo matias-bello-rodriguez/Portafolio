@@ -76,8 +76,8 @@ const Contact = () => {
       icon: "💻"
     },
     {
-      title: "Arquitectura de Software",
-      description: "Diseño de sistemas escalables y microservicios para aplicaciones empresariales",
+      title: "Ciencia de Datos",
+      description: "Análisis y visualización de datos para la toma de decisiones informadas",
       icon: "🏗️"
     },
     {
@@ -87,7 +87,7 @@ const Contact = () => {
     },
     {
       title: "Consultoría Técnica",
-      description: "Asesoría en proyectos de software y arquitectura de sistemas",
+      description: "Asesoría en proyectos de software, macros y soluciones simples",
       icon: "🎯"
     }
   ];
@@ -105,8 +105,8 @@ const Contact = () => {
             <span className="highlight"> extraordinario juntos?</span>
           </h2>
           <p className="contact-subtitle">
-            Estoy siempre interesado en nuevos proyectos tecnológicos, 
-            oportunidades de desarrollo y colaboraciones innovadoras.
+            Estoy siempre interesado en nuevos proyectos, 
+            oportunidades de desarrollo y colaboraciones.
           </p>
         </div>
 
@@ -209,7 +209,7 @@ const Contact = () => {
                   >
                     <option value="">Selecciona un asunto</option>
                     <option value="desarrollo-web">Desarrollo Web Full-Stack</option>
-                    <option value="arquitectura">Arquitectura de Software</option>
+                    <option value="data-analytics">Data Analytics</option>
                     <option value="mobile">Desarrollo Mobile</option>
                     <option value="consultoria">Consultoría Técnica</option>
                     <option value="colaboracion">Oportunidad de Trabajo</option>
@@ -269,7 +269,7 @@ const Contact = () => {
                 más inmediata sobre tu proyecto.
               </p>
             </div>
-            <a href="tel:+56912345678" className="footer-cta">
+            <a href="tel:+56942472330" className="footer-cta">
               <span className="cta-icon">📞</span>
               Llamar ahora
             </a>

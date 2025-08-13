@@ -9,15 +9,15 @@ const About = () => {
       icon: "💻"
     },
     {
-      title: "Arquitectura de Software",
-      description: "Diseño de sistemas distribuidos y patrones de arquitectura para aplicaciones complejas.",
-      icon: "🏗️"
-    },
-    {
       title: "Desarrollo Mobile",
       description: "Aplicaciones móviles nativas e híbridas para iOS y Android con React Native.",
-      icon: "�"
-    }
+      icon: "📱"
+    },
+        {
+      title: "Ciencia de datos",
+      description: "Análisis y visualización de datos para la toma de decisiones informadas orientadas a la integración en plataformas",
+      icon: "📊"
+    },
   ];
 
   const principles = [
@@ -27,15 +27,15 @@ const About = () => {
     },
     {
       title: "Escalabilidad",
-      description: "Código arquitecturado para crecer y adaptarse a nuevas necesidades."
+      description: "Diseñar en miras a la actualización y mejora continua."
     },
     {
-      title: "Innovación",
-      description: "Aplicación de tecnologías emergentes para crear soluciones únicas."
+      title: "Eficiencia",
+      description: "Trabajo óptimo y uso efectivo de recursos, priorizando actividades clave."
     },
     {
-      title: "Performance",
-      description: "Optimización continua para máximo rendimiento y experiencia de usuario."
+      title: "Comunicación",
+      description: "Entender que el lenguaje técnico debe ser accesible para todos."
     }
   ];
 
@@ -57,19 +57,17 @@ const About = () => {
           <div className="about-text">
             <div className="about-intro">
               <p>
-                Soy un <strong>programador pragmático</strong> próximo a ser ingeniero en informática, 
-                especializado en crear soluciones tecnológicas innovadoras y escalables. 
-                Mi enfoque combina las mejores prácticas del desarrollo de software con principios de ingeniería sólidos.
+                Soy un <strong>programador pragmático</strong>, 
+                especializado en crear soluciones tecnológicas innovadoras y escalables, aplicando <strong>prácticas de desarrollo ágil</strong>.
               </p>
               
               <p>
-                Mi experiencia abarca desde el desarrollo de aplicaciones web full-stack hasta la arquitectura 
-                de sistemas distribuidos. Creo en el código limpio, las soluciones escalables y la innovación continua.
+                Mi experiencia abarca desde el desarrollo de aplicaciones web full-stack hasta el manejo de grandes volúmenes de datos para lograr automatización.
               </p>
               
               <p>
-                Actualmente me enfoco en tecnologías como <strong>React</strong>, <strong>Node.js</strong>, 
-                <strong>Python</strong> y arquitecturas en la nube, aplicándolas a desafíos tecnológicos modernos.
+                Actualmente me enfoco en tecnologías como <strong>React/Angular</strong>, <strong>Node.js</strong> y
+                <strong>Python</strong>, aplicándolas a desafíos tecnológicos modernos.
               </p>
             </div>
 
@@ -105,7 +103,7 @@ const About = () => {
                     </div>
                     <div className="snippet-line">
                       <span className="property">  objetivo</span>: 
-                      <span className="string">'innovar'</span>
+                      <span className="string">'eficiencia'</span>
                     </div>
                     <div className="snippet-line">{"}"}</div>
                   </div>
@@ -142,7 +140,7 @@ const About = () => {
           </div>
           <div className="stat-item">
             <div className="stat-number">100%</div>
-            <div className="stat-label">Compromiso con Calidad</div>
+            <div className="stat-label">Transformación digital</div>
           </div>
         </div>
       </div>

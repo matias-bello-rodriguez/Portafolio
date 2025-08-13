@@ -4,58 +4,58 @@ import './Skills.css';
 const Skills = () => {
   const technicalSkills = [
     {
-      category: "Frontend Development",
+      category: "Frontend",
       skills: [
-        { name: "React", level: 90, icon: "⚛️" },
-        { name: "JavaScript", level: 88, icon: "📜" },
-        { name: "TypeScript", level: 82, icon: "📘" },
-        { name: "HTML5/CSS3", level: 85, icon: "🎨" }
+        { name: "Angular", level: 90, icon: "🅰️" },
+        { name: "React", level: 75, icon: "⚛️" },
+        { name: "JavaScript", level: 75, icon: "�" },
+        { name: "React Native", level: 35, icon: "📱" }
       ]
     },
     {
-      category: "Backend Development",
+      category: "Backend",
       skills: [
         { name: "Node.js", level: 85, icon: "🟢" },
-        { name: "Python", level: 88, icon: "🐍" },
-        { name: "Express.js", level: 80, icon: "🚀" },
-        { name: "Django", level: 75, icon: "🎸" }
+        { name: "Python", level: 75, icon: "🐍" },
+        { name: "Django", level: 65, icon: "🎸" },
+        { name: "PHP", level: 65, icon: "🐘" }
       ]
     },
     {
-      category: "Base de Datos",
+      category: "Bases de Datos",
       skills: [
-        { name: "PostgreSQL", level: 80, icon: "🐘" },
-        { name: "MongoDB", level: 78, icon: "🍃" },
-        { name: "MySQL", level: 75, icon: "�️" },
-        { name: "Redis", level: 70, icon: "⚡" }
+        { name: "PostgreSQL", level: 90, icon: "🐘" },
+        { name: "MySQL", level: 85, icon: "🗄️" },
+        { name: "Firebase", level: 75, icon: "🔥" },
+        { name: "MongoDB", level: 60, icon: "🍃" }
       ]
     },
     {
-      category: "DevOps & Cloud",
+      category: "Ciencia de Datos",
       skills: [
-        { name: "AWS", level: 75, icon: "☁️" },
-        { name: "Docker", level: 78, icon: "🐳" },
-        { name: "Git", level: 90, icon: "�" },
-        { name: "Linux", level: 80, icon: "🐧" }
+        { name: "Python/Pandas", level: 85, icon: "🐼" },
+        { name: "OCR/Tesseract", level: 70, icon: "🔤" },
+        { name: "Excel/VBA", level: 70, icon: "🟩" },
+        { name: "Locker/Power BI", level: 60, icon: "📈" }
       ]
     }
   ];
 
   const computerScienceSkills = [
     {
-      name: "Arquitectura de Software",
-      description: "Diseño de sistemas escalables y patrones de arquitectura empresarial",
+      name: "Conocimiento del negocio",
+      description: "Actualización constante en los avances de la industría en el país",
       level: 85
     },
     {
       name: "Algoritmos y Estructuras de Datos",
       description: "Optimización de algoritmos y manejo eficiente de estructuras complejas",
-      level: 88
+      level: 76
     },
     {
       name: "Desarrollo Mobile",
       description: "Aplicaciones móviles nativas e híbridas para iOS y Android",
-      level: 80
+      level: 65
     },
     {
       name: "Machine Learning",
@@ -65,34 +65,28 @@ const Skills = () => {
     {
       name: "Seguridad Informática",
       description: "Implementación de medidas de seguridad y protección de datos",
-      level: 78
+      level: 50
     },
     {
       name: "Microservicios",
-      description: "Arquitectura distribuida y comunicación entre servicios",
-      level: 82
+      description: "Arquitectura distribuida y comunicación entre servicios (estoy trabajando para dominar SpringBoot)",
+      level: 50
     }
   ];
 
   const certifications = [
     {
-      name: "Ingeniero en Informática",
+      name: "Ingeniería en Informática",
       issuer: "Universidad",
-      year: "2024",
-      status: "En curso"
-    },
-    {
-      name: "AWS Certified Developer",
-      issuer: "Amazon Web Services",
-      year: "2023",
+      year: "2025",
       status: "Completado"
     },
     {
-      name: "React Developer",
-      issuer: "Meta",
+      name: "TOEIC C1",
+      issuer: "English Group",
       year: "2023",
       status: "Completado"
-    }
+    },
   ];
 
   return (
@@ -137,6 +131,7 @@ const Skills = () => {
                             className="skill-progress"
                             style={{
                               width: `${skill.level}%`,
+                              '--target-width': `${skill.level}%`,
                               animationDelay: `${categoryIndex * 0.1 + skillIndex * 0.05}s`
                             }}
                           ></div>
@@ -205,7 +200,7 @@ const Skills = () => {
               <h4>Enfoque Integral</h4>
               <p>
                 Combino habilidades técnicas en desarrollo de software con conocimientos 
-                profundos en ciencias de la computación para crear soluciones completas y escalables.
+                de la industria (aprendo con webinars y cursos en línea) para crear soluciones completas y escalables.
               </p>
             </div>
           </div>

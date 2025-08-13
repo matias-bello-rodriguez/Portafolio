@@ -26,8 +26,8 @@ const Header = () => {
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            <div className="logo-text">MATÍAS</div>
-            <div className="logo-subtitle">Ingeniero en Informática</div>
+            <div className="logo-text">Mi portafolio</div>
+            <div className="logo-subtitle">Programación y automatización</div>
           </div>
           
           <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>

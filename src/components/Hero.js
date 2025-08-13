@@ -17,14 +17,13 @@ const Hero = () => {
             </div>
             
             <h1 className="hero-title">
-              <span className="hero-name">MATÍAS Bello</span>
+              <span className="hero-name">Matías Bello</span>
               <span className="hero-role">Ingeniero en Informática</span>
             </h1>
             
             <div className="hero-description">
               <p className="hero-subtitle">
-                Programador pragmático próximo a ser ingeniero en informática. 
-                Especializado en desarrollo de aplicaciones web y soluciones tecnológicas innovadoras.
+                Ingeniero en informática centrado en diseñar soluciones sólidas y escalables para industrias productivas, con sólidos conocimientos técnicos y experiencia comprobable.
               </p>
               
               <div className="hero-highlights">
@@ -33,12 +32,12 @@ const Hero = () => {
                   <span>Desarrollo Full-Stack</span>
                 </div>
                 <div className="highlight-item">
-                  <span className="highlight-icon">�</span>
-                  <span>Arquitectura de Software</span>
+                  <span className="highlight-icon">📚</span>
+                  <span>Ciencia de datos</span>
                 </div>
                 <div className="highlight-item">
                   <span className="highlight-icon">�</span>
-                  <span>Aplicaciones Móviles</span>
+                  <span>Miras a arquitectura de software</span>
                 </div>
               </div>
             </div>
@@ -102,7 +101,7 @@ const Hero = () => {
                     <span className="indent">        </span>
                     <span className="property">self.stack</span> = [
                     <span className="string">"Python"</span>, 
-                    <span className="string">"React"</span>, 
+                    <span className="string">"JavaScript"</span>, 
                     <span className="string">"Node.js"</span>]
                   </span>
                 </div>
