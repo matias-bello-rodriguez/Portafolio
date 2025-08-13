@@ -101,8 +101,8 @@ const Contact = () => {
             <span className="section-title">Contacto</span>
           </div>
           <h2 className="contact-title">
-            ¿Listo para crear algo 
-            <span className="highlight"> extraordinario juntos?</span>
+            ¿Listo para diseñar una
+            <span className="highlight"> solución?</span>
           </h2>
           <p className="contact-subtitle">
             Estoy siempre interesado en nuevos proyectos, 
