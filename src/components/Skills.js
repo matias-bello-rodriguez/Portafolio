@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import './Skills.css';
 
 const Skills = () => {
+  const [showAllSkills, setShowAllSkills] = useState(false);
+  const [skillSearch, setSkillSearch] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(null); // categoría activa para el modal
   const technicalSkills = [
     {
       category: "Frontend",
       skills: [
         { name: "Angular", level: 90, icon: "🅰️" },
         { name: "React", level: 75, icon: "⚛️" },
-        { name: "JavaScript", level: 75, icon: "�" },
-        { name: "React Native", level: 35, icon: "📱" }
+        { name: "JavaScript", level: 75, icon: "🧠" },
+        { name: "TypeScript", level: 50, icon: "📘" } // actualizado
+      ]
+    },
+    {
+      category: "Ciencia de Datos",
+      skills: [
+        { name: "Python/Pandas", level: 85, icon: "🐼" },
+        { name: "OCR/Tesseract", level: 70, icon: "👁️" },
+        { name: "Excel/VBA", level: 70, icon: "🟩" },
+        { name: "Locker/Power BI", level: 60, icon: "📈" },
+        { name: "PL/SQL", level: 90, icon: "🧮" }
       ]
     },
     {
@@ -18,25 +31,45 @@ const Skills = () => {
         { name: "Node.js", level: 85, icon: "🟢" },
         { name: "Python", level: 75, icon: "🐍" },
         { name: "Django", level: 65, icon: "🎸" },
-        { name: "PHP", level: 65, icon: "🐘" }
+        { name: "PHP", level: 65, icon: "🐘" },
+        { name: "Java", level: 20, icon: "☕" },
+        { name: "Spring Boot", level: 22, icon: "🍃" }
       ]
     },
     {
       category: "Bases de Datos",
       skills: [
         { name: "PostgreSQL", level: 90, icon: "🐘" },
-        { name: "MySQL", level: 85, icon: "🗄️" },
+        { name: "MySQL", level: 85, icon: "🐬💿" }, // actualizado
         { name: "Firebase", level: 75, icon: "🔥" },
         { name: "MongoDB", level: 60, icon: "🍃" }
       ]
     },
     {
-      category: "Ciencia de Datos",
+      category: "App Mobile",
       skills: [
-        { name: "Python/Pandas", level: 85, icon: "🐼" },
-        { name: "OCR/Tesseract", level: 70, icon: "🔤" },
-        { name: "Excel/VBA", level: 70, icon: "🟩" },
-        { name: "Locker/Power BI", level: 60, icon: "📈" }
+        { name: "React Native", level: 55, icon: "📱" },
+        { name: "Ionic/Capacitor", level: 70, icon: "⚡" },
+        { name: "Android Studio", level: 37, icon: "🤖" },
+        { name: "Xcode", level: 15, icon: "🍏" }
+      ]
+    },
+    {
+      category: "DevOps & Cloud",
+      skills: [
+        { name: "Google Cloud (GCP)", level: 50, icon: "☁️" },
+        { name: "Render", level: 15, icon: "🚀" },
+        { name: "AWS", level: 10, icon: "🟧" },
+        { name: "GitHub Actions", level: 35, icon: "🤖" }
+      ]
+    },
+    {
+      category: "Ingeniería & Planificación",
+      skills: [
+        { name: "BPMN 2.0 / LucidChart", level: 90, icon: "🧩" },
+        { name: "Microsoft Project", level: 70, icon: "📊" },
+        { name: "SCRUM", level: 40, icon: "🌀" },
+        { name: "StarUML", level: 30, icon: "🗺️" }
       ]
     }
   ];
@@ -89,6 +122,18 @@ const Skills = () => {
     },
   ];
 
+  // Construir lista completa de habilidades técnicas (flatten)
+  const flatTechnicalSkills = useMemo(() => {
+    return technicalSkills.flatMap(cat => 
+      cat.skills.map(s => ({ ...s, category: cat.category }))
+    );
+  }, [technicalSkills]);
+
+  const filteredFlatSkills = flatTechnicalSkills.filter(s => 
+    s.name.toLowerCase().includes(skillSearch.toLowerCase()) ||
+    s.category.toLowerCase().includes(skillSearch.toLowerCase())
+  );
+
   return (
     <section id="habilidades" className="skills">
       <div className="container">
@@ -116,10 +161,18 @@ const Skills = () => {
             
             <div className="skills-grid">
               {technicalSkills.map((category, categoryIndex) => (
-                <div key={categoryIndex} className="skill-category">
+                <div
+                  key={categoryIndex}
+                  className="skill-category clickable"
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => { setSelectedCategory(category.category); setShowAllSkills(true); setSkillSearch(''); }}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedCategory(category.category); setShowAllSkills(true); setSkillSearch(''); } }}
+                  aria-label={`Ver todas las habilidades de ${category.category}`}
+                >
                   <h4 className="category-title">{category.category}</h4>
                   <div className="category-skills">
-                    {category.skills.map((skill, skillIndex) => (
+                    {category.skills.slice(0,4).map((skill, skillIndex) => (
                       <div key={skillIndex} className="skill-item">
                         <div className="skill-header">
                           <span className="skill-icon">{skill.icon}</span>
@@ -138,6 +191,9 @@ const Skills = () => {
                         </div>
                       </div>
                     ))}
+                    {category.skills.length > 4 && (
+                      <div className="more-skills-hint" aria-hidden="true">+{category.skills.length - 4} más…</div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -217,6 +273,64 @@ const Skills = () => {
           </div>
         </div>
       </div>
+
+      {showAllSkills && (
+        <div className="skills-modal" role="dialog" aria-modal="true" aria-labelledby="allSkillsTitle">
+          <div className="skills-modal-backdrop" onClick={() => setShowAllSkills(false)} />
+          <div className="skills-modal-content">
+            <div className="skills-modal-header">
+              <h3 id="allSkillsTitle">{selectedCategory ? `Habilidades: ${selectedCategory}` : 'Todas las Habilidades Técnicas'}</h3>
+              <div className="skills-modal-actions">
+                {selectedCategory && (
+                  <button
+                    type="button"
+                    className="show-all-btn"
+                    onClick={() => { setSelectedCategory(null); setSkillSearch(''); }}
+                  >
+                    Ver todas
+                  </button>
+                )}
+                <button className="skills-modal-close" onClick={() => { setShowAllSkills(false); setSelectedCategory(null); }} aria-label="Cerrar">×</button>
+              </div>
+            </div>
+            <div className="skills-modal-toolbar">
+              <input
+                type="text"
+                className="skills-search"
+                placeholder="Buscar por nombre o categoría..."
+                value={skillSearch}
+                onChange={e => setSkillSearch(e.target.value)}
+              />
+              <span className="skills-count">
+                {selectedCategory ? `${filteredFlatSkills.filter(s => s.category === selectedCategory).length}` : filteredFlatSkills.length}
+                {' / '}
+                {selectedCategory ? flatTechnicalSkills.filter(s => s.category === selectedCategory).length : flatTechnicalSkills.length}
+              </span>
+            </div>
+            <div className="all-skills-list">
+              {filteredFlatSkills
+                .filter(s => !selectedCategory || s.category === selectedCategory)
+                .sort((a,b) => a.name.localeCompare(b.name))
+                .map((skill, idx) => (
+                <div key={idx} className="all-skill-item">
+                  <div className="all-skill-main">
+                    <span className="all-skill-icon">{skill.icon}</span>
+                    <span className="all-skill-name">{skill.name}</span>
+                    <span className="all-skill-cat">{skill.category}</span>
+                  </div>
+                  <div className="all-skill-bar">
+                    <div className="all-skill-progress" style={{width: `${skill.level}%`}} />
+                    <span className="all-skill-level">{skill.level}%</span>
+                  </div>
+                </div>
+              ))}
+              {filteredFlatSkills.filter(s => !selectedCategory || s.category === selectedCategory).length === 0 && (
+                <div className="no-results">Sin resultados para "{skillSearch}"</div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

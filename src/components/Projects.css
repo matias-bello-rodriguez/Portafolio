@@ -791,3 +791,58 @@
   color: #ffc107;
   border: 1px solid rgba(255, 193, 7, 0.3);
 }
+
+/* Tabs de paginación de proyectos */
+.projects-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 2.5rem 0 3rem 0;
+}
+
+.tab-btn {
+  padding: 0.6rem 1rem;
+  background: rgba(35,35,35,0.4);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  min-width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(212,84,42,0.15), rgba(255,193,7,0.15));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tab-btn:hover::before { opacity: 1; }
+.tab-btn:hover { color: var(--text-primary); border-color: var(--accent-orange); transform: translateY(-2px); }
+
+.tab-btn.active {
+  background: var(--accent-orange);
+  border-color: var(--accent-orange);
+  color: var(--bg-primary);
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(212,84,42,0.35);
+}
+
+.tab-btn.active::before { opacity: 0.25; }
+
+@media (max-width: 600px) {
+  .projects-tabs { gap: 0.4rem; }
+  .tab-btn { padding: 0.5rem 0.8rem; min-width: 36px; font-size: 0.65rem; }
+}

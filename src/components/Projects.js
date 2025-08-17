@@ -204,6 +204,8 @@ const Projects = () => {
   const categories = ["Todos", "Full-Stack", "Backend", "Data Science", "Mobile", "Web App"];
   const [activeCategory, setActiveCategory] = React.useState("Todos");
   const [filteredProjects, setFilteredProjects] = React.useState(projects);
+  const PROJECTS_PER_PAGE = 8;
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Funciones para el carrusel
   const openCarousel = (projectId) => {
@@ -235,7 +237,20 @@ const Projects = () => {
     } else {
       setFilteredProjects(projects.filter(project => project.category === activeCategory));
     }
+    setCurrentPage(1); // reset page on category change
   }, [activeCategory]);
+
+  // Recalcular página actual si el filtro reduce páginas
+  React.useEffect(() => {
+    const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE) || 1;
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages);
+    }
+  }, [filteredProjects, currentPage]);
+
+  const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE) || 1;
+  const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
+  const paginatedProjects = filteredProjects.slice(startIndex, startIndex + PROJECTS_PER_PAGE);
 
   return (
     <section id="proyectos" className="projects">
@@ -268,7 +283,7 @@ const Projects = () => {
         </div>
 
         <div className="projects-grid">
-          {filteredProjects.map((project, index) => (
+          {paginatedProjects.map((project, index) => (
             <div key={project.id} className="project-card" style={{animationDelay: `${index * 0.1}s`}}>
               <div className="project-image" onClick={() => project.image !== '🐒' && openCarousel(project.id)} style={{cursor: project.image !== '🐒' ? 'pointer' : 'default'}}>
                 {project.image === '🐒' ? (
@@ -333,6 +348,21 @@ const Projects = () => {
             </div>
           ))}
         </div>
+
+        {totalPages > 1 && (
+          <div className="projects-tabs" aria-label="Paginación de proyectos">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+              <button
+                key={page}
+                className={`tab-btn ${page === currentPage ? 'active' : ''}`}
+                onClick={() => setCurrentPage(page)}
+                aria-current={page === currentPage ? 'page' : undefined}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+        )}
 
         <div className="projects-cta">
           <div className="cta-content">
